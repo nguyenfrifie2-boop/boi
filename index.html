@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Oracle de L'Éternité • Viện Chiêm Tinh & Tiền Định Tình Ái Hoàng Gia (Est. 1888)</title>
+    
+    <!-- Google Fonts for Antique Esoteric Royal Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TOP FLOATING SWARM HUD / LUXURY TOOLBAR -->
+    <header class="swarm-hud-bar">
+        <div class="hud-left">
+            <span class="hud-brand-crest">⚜️</span>
+            <div class="hud-brand-title">
+                <strong>L'ORACLE DE L'ÉTERNITÉ</strong>
+                <span class="est-tag">ACADÉMIE ROYALE D'ASTROLOGIE • EST. 1888</span>
+            </div>
+        </div>
+
+        <div class="hud-center-controls">
+            <!-- Swarm Rebuild Trigger -->
+            <button id="hud-rebuild-btn" class="hud-action-btn primary-pulse" title="Tái hiện hiệu ứng Swarm Rebuild ngoạn mục trên trang">
+                <span class="btn-icon">⚡</span>
+                <span class="btn-label">TÁI THIẾT (SWARM REBUILD)</span>
+            </button>
+
+            <!-- Toggle Swarm On/Off -->
+            <button id="hud-toggle-swarm" class="hud-action-btn is-active" title="Bật/Tắt bầy tinh linh chuột">
+                <span class="btn-icon">✨</span>
+                <span class="btn-label">Swarm: BẬT</span>
+            </button>
+
+            <!-- Swarm Speed -->
+            <div class="hud-select-wrap">
+                <span class="select-label">Tốc độ:</span>
+                <select id="hud-speed-select">
+                    <option value="1.0">1.0×</option>
+                    <option value="1.5">1.5×</option>
+                    <option value="2.5">2.5× (Siêu tốc)</option>
+                </select>
+            </div>
+
+            <!-- Agent Count -->
+            <div class="hud-select-wrap">
+                <span class="select-label">Tinh linh:</span>
+                <select id="hud-count-select">
+                    <option value="6">6 Tinh linh</option>
+                    <option value="8" selected>8 Tinh linh</option>
+                    <option value="12">12 Tinh linh (Đại tiệc)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="hud-right-audio">
+            <button id="hud-audio-ambient" class="hud-audio-btn" title="Bật nhạc thiền tần số Solfeggio">
+                <span class="btn-icon">🎶</span>
+                <span class="btn-label">Nhạc vũ trụ</span>
+            </button>
+            <button id="hud-audio-mute" class="hud-audio-btn" title="Tắt / Bật hiệu ứng âm thanh">
+                <span class="btn-icon">🔊</span>
+                <span class="btn-label">Âm thanh</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN HERO SECTION WITH INTERACTIVE 3D ASTROLABE -->
+    <main class="page-container">
+        
+        <section class="oracle-hero-section">
+            <div class="hero-decorative-frame">
+                <div class="corner-ornament top-left"></div>
+                <div class="corner-ornament top-right"></div>
+                <div class="corner-ornament bottom-left"></div>
+                <div class="corner-ornament bottom-right"></div>
+
+                <div class="hero-badge">
+                    <span class="star-sparkle">✦</span>
+                    BÍ TRUYỀN THIÊN CƠ & NHÂN DUYÊN TAM GIỚI
+                    <span class="star-sparkle">✦</span>
+                </div>
+
+                <h1 class="oracle-hero-title">
+                    <span class="sub-accent">Khám Phá Sợi Chỉ Hồng &</span><br>
+                    TIỀN ĐỊNH TÌNH ÁI HOÀNG GIA
+                </h1>
+
+                <p class="hero-latin-motto">
+                    <em>« Astrum Dictat, Cor Eligit, Fata Consonant »</em><br>
+                    (Vì sao soi tỏ con đường, Trái tim lựa chọn, Định mệnh hòa ca)
+                </p>
+
+                <!-- Interactive 3D Astrolabe Viewport -->
+                <div class="astrolabe-viewport">
+                    <canvas id="astrolabe-canvas"></canvas>
+                    <div class="astrolabe-center-text">
+                        <span class="glyph-core">♌ ☌ ♒</span>
+                        <span class="orbit-status">VÒNG QUỸ ĐẠO BẤT TỬ ĐANG QUAY</span>
+                    </div>
+                </div>
+
+                <div class="hero-ctas">
+                    <a href="#synastry-sanctum" class="antique-btn gold-glow">
+                        <span class="btn-text">SOI CHIẾU THIÊN CUNG TƯƠNG HỢP</span>
+                        <span class="btn-flair">⚜️</span>
+                    </a>
+                    <a href="#tarot-sanctum" class="antique-btn outline-foil">
+                        <span class="btn-text">TRẢI BÀI TAROT 3 LÁ MẠ VÀNG</span>
+                        <span class="btn-flair">🔮</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: THE ROYAL SYNASTRY ASTROLOGICAL CALCULATOR -->
+        <section id="synastry-sanctum" class="content-sanctum synastry-card">
+            <div class="sanctum-header">
+                <span class="sanctum-number">I</span>
+                <h2 class="sanctum-title">ĐÀI THIÊN CUNG TƯƠNG HỢP (SYNASTRY COMPASS)</h2>
+                <p class="sanctum-desc">Nhập tọa độ sinh nhật của hai bạn. Thuật toán chiêm tinh học cổ Hy Lạp kết hợp Thần số học Pythagore sẽ giải mã ma trận duyên nợ.</p>
+            </div>
+
+            <form id="synastry-form" class="esoteric-form">
+                <div class="lovers-inputs-grid">
+                    
+                    <!-- Person 1 -->
+                    <div class="parchment-card person-card">
+                        <div class="card-crest">☽</div>
+                        <h3 class="person-role">TÂM HỒN THỨ NHẤT (BẠN)</h3>
+                        <div class="form-group">
+                            <label for="person1-name">Họ & Tên Thánh / Trần:</label>
+                            <input type="text" id="person1-name" placeholder="Ví dụ: Hoàng Anh" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="person1-dob">Ngày / Tháng / Năm Sinh:</label>
+                            <input type="date" id="person1-dob" required>
+                        </div>
+                    </div>
+
+                    <!-- Sacred Center Connection Node -->
+                    <div class="destiny-nexus">
+                        <div class="nexus-ring">
+                            <span class="nexus-icon">∞</span>
+                        </div>
+                        <div class="form-group status-select-wrap">
+                            <label for="relation-status">Tình Trạng Mối Quan Hệ:</label>
+                            <select id="relation-status">
+                                <option value="crush">Đang Tương Tư / Thầm Thương</option>
+                                <option value="dating" selected>Đang Tìm Hiểu & Hẹn Hò</option>
+                                <option value="in_love">Đang Yêu Nồng Nàn</option>
+                                <option value="complicated">Mối Quan Hệ Mập Mờ / Thử Thách</option>
+                                <option value="soulmate">Đã Đính Ước / Vợ Chồng</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Person 2 -->
+                    <div class="parchment-card person-card">
+                        <div class="card-crest">☼</div>
+                        <h3 class="person-role">TÂM HỒN THỨ HAI (ĐỐI PHƯƠNG)</h3>
+                        <div class="form-group">
+                            <label for="person2-name">Họ & Tên Thánh / Trần:</label>
+                            <input type="text" id="person2-name" placeholder="Ví dụ: Diệu Linh" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="person2-dob">Ngày / Tháng / Năm Sinh:</label>
+                            <input type="date" id="person2-dob" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-submit-wrap">
+                    <button type="submit" class="antique-btn large-btn gold-glow">
+                        <span class="btn-text">KHAI MỞ MA TRẬN DUYÊN KIẾP</span>
+                        <span class="btn-flair">✨</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Synastry Results Output -->
+            <div id="synastry-result" class="synastry-result-panel" style="display: none;">
+                <div class="result-crest-banner">
+                    <span class="crown-icon">👑</span>
+                    <h3 id="res-tier-title" class="tier-title">VĨNH KIẾP KIM THẠCH (TWIN FLAME)</h3>
+                    <div class="score-circle-wrap">
+                        <span id="res-score-number" class="score-number">94%</span>
+                        <span class="score-sub">CHỈ SỐ HÒA HỢP THIÊN ĐỊNH</span>
+                    </div>
+                </div>
+
+                <div class="zodiac-match-cards">
+                    <div id="res-zodiac-p1" class="zodiac-chip"></div>
+                    <div class="zodiac-bridge">☌</div>
+                    <div id="res-zodiac-p2" class="zodiac-chip"></div>
+                </div>
+
+                <!-- 4 Pillars Bars -->
+                <div class="pillars-grid">
+                    <div class="pillar-item">
+                        <div class="pillar-label">
+                            <span>♀️ Cảm Xúc (Venus)</span>
+                            <span id="res-val-venus">92%</span>
+                        </div>
+                        <div class="pillar-track"><div id="res-bar-venus" class="pillar-fill" style="width: 92%"></div></div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-label">
+                            <span>♂️ Đam Mê (Mars)</span>
+                            <span id="res-val-mars">88%</span>
+                        </div>
+                        <div class="pillar-track"><div id="res-bar-mars" class="pillar-fill" style="width: 88%"></div></div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-label">
+                            <span>☿️ Tri Kỷ (Mercury)</span>
+                            <span id="res-val-mercury">95%</span>
+                        </div>
+                        <div class="pillar-track"><div id="res-bar-mercury" class="pillar-fill" style="width: 95%"></div></div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-label">
+                            <span>🪐 Duyên Nợ (Karma)</span>
+                            <span id="res-val-karma">97%</span>
+                        </div>
+                        <div class="pillar-track"><div id="res-bar-karma" class="pillar-fill" style="width: 97%"></div></div>
+                    </div>
+                </div>
+
+                <div id="res-oracle-text" class="oracle-prose-box"></div>
+
+                <div class="decree-trigger-wrap">
+                    <button id="open-decree-btn" class="antique-btn outline-foil">
+                        <span class="btn-text">📜 XUẤT CHỨNG THƯ TÌNH DUYÊN SÁP NIÊM PHONG</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE SACRED 3-CARD LOVE TAROT SANCTUM -->
+        <section id="tarot-sanctum" class="content-sanctum tarot-sanctum-section">
+            <div class="sanctum-header">
+                <span class="sanctum-number">II</span>
+                <h2 class="sanctum-title">ĐIỆN TAROT TÌNH DUYÊN 3 LÁ MẠ VÀNG</h2>
+                <p class="sanctum-desc">Trực giác của bạn sẽ dẫn lối. Nhấp "Xáo Bài" rồi lần lượt lật từng lá bài để soi tỏ Ba Chiều Không Gian của mối quan hệ.</p>
+            </div>
+
+            <div class="tarot-controls">
+                <button id="tarot-shuffle-btn" class="antique-btn gold-glow">
+                    <span class="btn-text">✨ Xáo & Trải Bài Ma Thuật</span>
+                </button>
+            </div>
+
+            <!-- 3 Slots for Past, Present, Future -->
+            <div id="tarot-slots-grid" class="tarot-slots-grid">
+                <!-- Dynamically generated tarot cards will populate here -->
+                <div class="tarot-placeholder-prompt">
+                    <p>Nhấp vào nút "Xáo & Trải Bài Ma Thuật" phía trên để triệu hồi các lá bài cổ xưa.</p>
+                </div>
+            </div>
+
+            <!-- Tarot Reading Explanation -->
+            <div id="tarot-reading-box" class="tarot-reading-box" style="display: none;">
+                <div class="reading-columns">
+                    <div id="tarot-interp-past" class="reading-col"></div>
+                    <div id="tarot-interp-present" class="reading-col highlight-col"></div>
+                    <div id="tarot-interp-future" class="reading-col"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: THE RESONANT PULSE LOVE SPHERE (528Hz Solfeggio) -->
+        <section class="content-sanctum pulse-sphere-card">
+            <div class="sanctum-header">
+                <span class="sanctum-number">III</span>
+                <h2 class="sanctum-title">QUẢ CẦU KHỞI THỆ & TẦN SỐ TÌNH YÊU 528Hz</h2>
+                <p class="sanctum-desc">Theo bí truyền cổ đại, tần số 528Hz là rung cảm của tình yêu vô điều kiện và sự biến đổi diệu kỳ. Nhấn và giữ quả cầu để hòa âm năng lượng.</p>
+            </div>
+
+            <div class="sphere-altar">
+                <div class="frequency-indicator">
+                    <span class="hz-label">TẦN SỐ CỘNG HƯỞNG:</span>
+                    <span id="pulse-frequency-val" class="hz-number">220 Hz</span>
+                </div>
+
+                <div class="sphere-outer-aura">
+                    <div id="crystal-love-sphere" class="crystal-sphere">
+                        <div class="sphere-inner-galaxy"></div>
+                        <div class="sphere-heart-core">💖</div>
+                    </div>
+                </div>
+
+                <div class="pulse-instruction">
+                    <p id="pulse-status-desc">Nhấn và giữ chuột (hoặc chạm tay trên điện thoại) vào quả cầu để truyền nạp năng lượng...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER WITH ROYAL EMBLEM & WAX SEAL -->
+        <footer class="royal-footer">
+            <div class="footer-seal-emblem">
+                <div class="footer-wax-stamp">
+                    <span>SEAL OF ETERNITY</span>
+                </div>
+                <div class="footer-lines">
+                    <p class="archival-notice">LƯU TRỮ TẠI THƯ VIỆN BÍ THUẬT HOÀNG GIA • BẢN QUYỀN VĨNH CỬU © 1888 - 2026</p>
+                    <p class="disclaimer">Mọi dự ngôn chiêm tinh là phương tiện để thấu hiểu bản thân và nuôi dưỡng tình cảm chân thành.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ROYAL DECREE MODAL (WAX SEAL CERTIFICATE) -->
+    <div id="decree-modal" class="decree-modal-backdrop">
+        <div class="decree-scroll-container">
+            <button id="decree-close-btn" class="decree-close">✕ Đóng</button>
+            
+            <div class="decree-parchment">
+                <div class="decree-border-frame">
+                    <div class="decree-header">
+                        <div class="royal-crest-seal">⚜️</div>
+                        <h2 class="decree-title">CHỨNG THƯ THIÊN DUYÊN TIỀN ĐỊNH</h2>
+                        <span class="decree-serial">DECRETUM AMORIS NO. 1888-ASTRAL</span>
+                    </div>
+
+                    <div class="decree-body">
+                        <p class="decree-p">Chiếu theo bản đồ thiên văn và sự hội tụ của muôn vàn vì tinh tú, Viện Chiêm Tinh Hoàng Gia trân trọng chứng giám giao ước định mệnh giữa:</p>
+                        
+                        <div class="decree-couple-names">
+                            <span id="decree-p1-name" class="name-foil">Hoàng Anh</span>
+                            <span class="connector">VÀ</span>
+                            <span id="decree-p2-name" class="name-foil">Diệu Linh</span>
+                        </div>
+
+                        <div class="decree-stars-align">
+                            <span id="decree-stars">♉ Kim Ngưu ☌ ♏ Bọ Cạp</span>
+                        </div>
+
+                        <div class="decree-verdict-box">
+                            <span class="verdict-label">ĐẲNG CẤP LƯƠNG DUYÊN:</span>
+                            <h3 id="decree-tier" class="verdict-tier">Vĩnh Kiếp Kim Thạch (Twin Flame)</h3>
+                            <div class="verdict-metric">Chỉ số gắn kết: <strong id="decree-score">96%</strong></div>
+                        </div>
+
+                        <p class="decree-oath">
+                            "Nguyện cho ánh sáng của Sao Kim soi rọi lòng thủy chung, ngọn lửa của Sao Hỏa giữ trọn niềm đam mê, và vòng quay của Thời Gian chỉ làm sâu sắc thêm tình yêu thương bất diệt."
+                        </p>
+
+                        <div class="decree-signature-row">
+                            <div class="decree-date-col">
+                                <span>Ban hành ngày:</span>
+                                <strong id="decree-date">11 Tháng 11, 2026</strong>
+                            </div>
+
+                            <!-- 3D RED WAX SEAL -->
+                            <div class="wax-seal-stamp">
+                                <div class="wax-inner">
+                                    <span class="seal-icon">⚜️</span>
+                                    <span class="seal-text">VERITAS AMORIS</span>
+                                </div>
+                            </div>
+
+                            <div class="decree-sign-col">
+                                <span class="sign-title">Chưởng Quản Thư Tịch</span>
+                                <div class="antique-signature">Arch-Astrologer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decree-actions">
+                <button id="decree-print-btn" class="antique-btn gold-glow">
+                    <span>🖨️ In / Tải Lưu Chứng Thư Hoàng Gia</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="audio.js"></script>
+    <script src="tarot-data.js"></script>
+    <script src="swarm.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
